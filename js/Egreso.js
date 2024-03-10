@@ -1,4 +1,4 @@
-import Dato from './Dato.js';
+import Dato from "./Dato.js"
 
 class Egreso extends Dato{
     static contadorEgresos=0;
@@ -10,5 +10,5 @@ class Egreso extends Dato{
         return this._id;
     }
 }
+
 export default Egreso;
-//module.exports = Egreso;
