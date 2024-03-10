@@ -95,6 +95,8 @@ console.log(formatoPorcentaje(porcentajeEgreso));
 // console.log(formatoMoneda(totalIngresos()));
 // console.log(formatoMoneda(totalEgresos()));
 
+return {totalIng: totalIngresos};
+
 }
 //cargarCabecero();
 
@@ -126,6 +128,8 @@ function cargarIngresos() {
         ingresosHTML += crearIngresoHTML(ingreso);
     }
     const listaIngresos=d.getElementById('lista_ingresos').innerHTML = ingresosHTML;
+
+    cargarEgresos();
 }
 
 
@@ -136,6 +140,7 @@ function eliminarIngreso(id){
         ingresos.splice(indiceEliminar, 1);
         cargarCabecero();
         cargarIngresos();
+        cargarEgresos();
     }
 };
 
@@ -146,13 +151,15 @@ function eliminarIngreso(id){
 
 function crearEgresoHTML(egreso) {
 
+    var cC = cargarCabecero();
+
     let egresoHTML = `
     <div id="lista_egresos"
         <div class="elemento limpiarEstilos">
             <div class="elemento_descripcion">${egreso.descripcion}</div>
             <div class="derecha limpiarEstilos">
                 <div class="elemento_valor">${formatoMoneda(egreso.valor)}</div>
-                <div class="elemento_porcentaje">%</div>
+                <div class="elemento_porcentaje">${formatoPorcentaje(egreso.valor/cC.totalIng())}</div>
                 <div class="elemento_eliminar">
                     <button class="elemento_eliminar--btn">
                         <ion-icon name="close-circle-outline" onclick="eliminarEgreso(${egreso.id})"></ion-icon>
