@@ -3,28 +3,28 @@
 
 <head>
     <meta charset="UTF-8">
-    <!-- Renderiza a dispositivos móviles   SIG LINEA se DESCOMENTARIZA
+    <!-- Renderiza a dispositivos móviles
     <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!--Título de la página que aparece en la pestaña de la misma-->
-    <title>PRESUPUESTO</title>
+    <title>PRESUPUESTO DGzz</title>
 
     <!--dirección de la hoja de estilos de este html-->
     <link rel="stylesheet" href="./css/estilos.css">
 
     <!-- Palabras clave para encontrar la página...-->
-    <meta name="keywords" content="presupuesto, presupuesto personal, gastos, ingresos">
+    <meta name="keywords" content="presupuesto, presupuesto personal, gastos, ingresos, proyecto, Tec Milenio, JavaScript">
 
     <!--Meta para descripción del contenido de la página-->
     <meta property="og:description"
-        content="Página para generar un presupuesto personal de ingresos y egresos. Clase JavaScript. Maestro JCC. Alumna D.González">
+        content="Página para generar un presupuesto personal de ingresos y egresos. Clase JavaScript. Maestro César Meza. Marzo 2024. Dalia M. González Quilantán">
 
-    <!--link para integrar los iconos de facebook, instagram, twiter y whatsapp en color morado-->
+    <!--link para integrar los iconos de facebook, instagram, twiter y whatsapp en color morado, cuando se ocupan,  ---que aquí no!!--  -->
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
   crossorigin="anonymous" referrerpolicy="no-referrer" />-->
 
-    <!--Link de bootstrap 5.0      SIG 2 LINEAS se DESCOMENTARIZAN------------------
+    <!--Link de bootstrap 5.0     que aquí no se ocupan--  -----------------
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">-->
 
@@ -34,6 +34,7 @@
 
 <body onload = "cargarApp()">
 
+    <!-- Esta área del docto es la parte que estructuralmente es fija; donde se cargan datos de las operaciones del proyecto, pero visualmente es FIJA-->
     <div class="cabecero">
         <div class="presupuesto">
             <div class="presupuesto_titulo">Presupuesto Disponible</div>
@@ -57,7 +58,7 @@
         </div>
     </div>
 
-
+<!-- Area del documento, que aunque pertenece visualmente al cabecero, por el background, despliega el área donde --SE CAPTURA-- toda la info del docto.  AREA FIJA-->
 
     <form id="forma" onsubmit="return false;">
         <div class="agregar">
@@ -66,11 +67,11 @@
                     <option value="ingreso" selected>+</option>
                     <option value="egreso">-</option><!-- SÓLO  " -  "  DENTRO DE OPTION -->
                 </select>
-                <input type="text" class="agregar_descripcion" placeholder="Agregar Descripción" id="descripcion"><!-- Aqui tenia name en lugar de placeholder-->
+                <input type="text" class="agregar_descripcion" placeholder="Agregar Descripción" id="descripcion">
                 <input type="number" class="agregar_valor" placeholder="Valor" step="any" id="valor">
                 <!--  id-->
                 <!--<input>-->
-                <button class="agregar_btn" onclick="agregarDato()">
+                <button class="agregar_btn" onclick="agregarDato()"><!-- evento para ingresar info-->
                     <ion-icon name="checkmark-circle-outline"></ion-icon>
                 </button>
             </div>
@@ -85,7 +86,7 @@
 
         <div class="ingreso">
             <h2 class="ingreso_titulo">Ingresos</h2>
-            <div id="lista_ingresos">
+            <div id="lista_ingresos"><!-- En esta área, se generan 2 eventos del área de ingresos; que desde la app la vamos a manejar en forma dinámica; por eso el ---GENERARLA  NUEVAMENTE  DESDE  LA  APP=  app.js---- de esta manera, se quitan y se ponen las cajas que contienen la info desde la app-->
 
                 <div class="elemento limpiarEstilos">
 
@@ -119,7 +120,8 @@
 
         <div class="egreso">
             <h2 class="egreso_titulo">Egresos</h2>
-            <div id="lista_egresos"> <!-- 119 y 120 lineas juntas--  edith 108-->
+            <div id="lista_egresos">
+                <!-- En esta área, se generan 2 eventos del área de egresos; que desde la app la vamos a manejar en forma dinámica; por eso el ---GENERARLA  NUEVAMENTE  DESDE  LA  APP=  app.js---- de esta manera, se quitan y se ponen las cajas que contienen la info desde la app-->
                 <div class="elemento limpiarEstilos">
                     <div class="elemento_descripcion">Renta Departamento</div>
                     <div class="derecha limpiarEstilos">
@@ -151,15 +153,15 @@
     </div>
 
 
-
+    <footer class="footer"><h5 class="pie_pagina">Frontend Fundamentals: HTML, CSS y JavaScript. DGzz. Mzo 2024.</h5></footer>-
     <script src="./js/app.js" type="module"></script>
-    <!--<script src="./js/Dato.js" type="module"></script>
-    <script src="./js/Ingreso.js" type="module"></script>
-    <script src="./js/Egreso.js" type="module"></script>-->
+    <!-- El archivo app.js se declara type="module"; porque integra "módulos" dentro de él.  No es necesario cargar aquí, Ingreso.js Egreso.js y Dato.js porque:  Dato se exporta a Ingreso y Egreso y a su vez Ingreso y Egreso se exportan a app.js-->
     
+    <!-- archivo de js, desde el bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+    <!-- archivo para cargar el o los iconos de js, desde el bootstrap-->
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js" type="module"></script>
 </body>
 </html>

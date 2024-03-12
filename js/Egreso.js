@@ -12,3 +12,5 @@ class Egreso extends Dato{
 }
 
 export default Egreso;
+
+//Egreso se exporta para ser utilizado en el archivo app.js

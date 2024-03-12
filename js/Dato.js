@@ -20,3 +20,4 @@ class Dato{
 
 export default Dato;
 
+//Dato se exporta para ser utilizado en los archivos Ingreso.js y Egreso.js

@@ -1,6 +1,5 @@
 import Egreso from "./Egreso.js";
 import Ingreso from "./Ingreso.js";
-//import Dato from "./Dato.js";
 
 const formatoMoneda = (valor) => {
     return valor.toLocaleString('es-MX', {
@@ -10,7 +9,7 @@ const formatoMoneda = (valor) => {
         maximumFractionDigits:2
     });
 };
-//Rutina para convertir "un valor" a porcentaje c/2 dígitos
+//Rutina para convertir "un valor" a porcentaje c/2 dígitos 0 dígitos
 const formatoPorcentaje = (valor) => {
     return valor.toLocaleString('es-MX', {
         style: 'percent',
@@ -27,7 +26,6 @@ const formatoPorcentaje = (valor) => {
 //     9000,
 //     400,
 // ]
-
 
 //_----------------------
 // let ingresos = [
@@ -55,7 +53,6 @@ let egresos=[
 egresos.push(new Egreso('Tururu', 4333))
 
 
-
 const d = document;
 
 const cargarCabecero=()=>{
@@ -79,6 +76,7 @@ const cargarCabecero=()=>{
     let presupuesto=(totalIngresos()-totalEgresos());
     let porcentajeEgreso= (totalEgresos()/totalIngresos());
 
+// Aquí generan las "entradas" de info a cada uno de los campos del Cabecero
 d.getElementById('presupuesto').innerHTML = formatoMoneda(presupuesto);
 d.getElementById('porcentaje').innerHTML = formatoPorcentaje(porcentajeEgreso);
 d.getElementById('ingresos').innerHTML = formatoMoneda(totalIngresos());
@@ -86,12 +84,12 @@ d.getElementById('egresos').innerHTML = formatoMoneda(totalEgresos());
 
 
 // console.log(presupuesto);
-console.log(porcentajeEgreso);
+//console.log(porcentajeEgreso);
 // console.log(totalIngresos());
 // console.log(totalEgresos());
 
 // console.log(formatoMoneda(presupuesto));
-console.log(formatoPorcentaje(porcentajeEgreso));
+//console.log(formatoPorcentaje(porcentajeEgreso));
 // console.log(formatoMoneda(totalIngresos()));
 // console.log(formatoMoneda(totalEgresos()));
 
@@ -102,6 +100,9 @@ return {totalIng: totalIngresos};
 
 
 //Secc para CARGAR INGRESOS DINAMICAMENTE... pag 2 act 4
+// funciones crearIngresoHTML()
+// cargarIngresos()
+// eliminarIngreso()
 
 function crearIngresoHTML(ingreso) {
     let ingresoHTML = `
@@ -129,9 +130,8 @@ function cargarIngresos() {
     }
     const listaIngresos=d.getElementById('lista_ingresos').innerHTML = ingresosHTML;
 
-    cargarEgresos();
+    cargarEgresos(); //linea para sacar el porcentaje en egresos
 }
-
 
 //función de pag 4 de 6 avance 4
 function eliminarIngreso(id){
@@ -147,11 +147,14 @@ function eliminarIngreso(id){
 
 
 //--------------EGRESOS DINAMICAMENTE----
+// funciones crearEgreso()
+// cargarEgresos()
+// eliminarEgreso()
 
 
 function crearEgresoHTML(egreso) {
 
-    var cC = cargarCabecero();
+    var cC = cargarCabecero();// var exclusiva para generar el porcentaje de los egresos de la  esta parte dinámica
 
     let egresoHTML = `
     <div id="lista_egresos"
@@ -195,15 +198,12 @@ function eliminarEgreso(id){
 
 
 
-//---------------------- para el html--------
+//---- para el html------ESTA INSTRUCCION funciona cuando no esta dado de alta agregarDato-----
 // const btnAgregar = d.querySelector('.agregar_btn');
 // btnAgregar.onclick = () =>{
 //     agregarDato();
 // }
 //para el html--------------------------
-
-
-
 
 
 
@@ -249,15 +249,3 @@ window.cargarApp = cargarApp;
 window.eliminarEgreso = eliminarEgreso;
 window.eliminarIngreso = eliminarIngreso;
 window.agregarDato = agregarDato;
-
-// const cargarApp=()=>{
-//         cargarCabecero();
-//         cargarIngresos();
-//         cargarEgresos();
-//     //    agregarDato();
-    
-//     agregarDato();
-//     eliminarIngreso();
-//     eliminarEgreso();
-// };
-//     cargarApp();

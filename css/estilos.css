@@ -177,11 +177,13 @@ body {
     float: left;
     width: 370px;
     margin-right: 70px;
+    margin-left: 20px;
 }
 
 .egreso {
     float: left;
     width: 370px;
+    margin-left: 20px;
 }
 
 h2 {
@@ -250,9 +252,60 @@ h2 {
     display: none;
 }
 
+.pie_pagina {
+    display: flex;
+    color: rgb(248, 225, 225);
+    margin: 0px;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    padding: 1px;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100vw;
+    height: auto;
+    background: url(fondo.png), #7b4397;
+    background: url(fondo.png), -webkit-gradient(linear, right top, left top, from(#7b4397), to(#dc2430));
+    background: url(fondo.png), linear-gradient(to left, #7b4397, #dc2430);
+    padding: 5px 0 15px 0;
+    margin: 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+/*.clearfix {
+  clear: both;
+}
+
+.pie-de-pagina {
+  align-items: center;
+  font-size: 15px;
+  margin: 0 20px 0 20px;
+  padding: 0 20px 0 20px;
+
+}*/
+
 .elemento_eliminar--btn:focus { outline: none; }
 .elemento_eliminar--btn:active { transform: translateY(2px); }
 
 .elemento:hover .elemento_eliminar--btn { display: block; }
 .elemento:hover .elemento_valor { transform: translateX(-20px); }
 .elemento:hover .elemento_porcentaje { transform: translateX(-20px); }
+
+@media screen and (max-width: 768px) {
+    .contenedor {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ingreso,
+    .egreso {
+        margin-bottom: 20px; /* Ajusta el margen entre los elementos ingreso y egreso */
+    }
+}
